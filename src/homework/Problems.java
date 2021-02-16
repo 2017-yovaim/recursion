@@ -19,10 +19,6 @@ public class Problems {
 		int n1 = input.nextInt();
 		printPower(1, n1, false);
 		
-		
-		
-		
-		
 		input.close();
 	}
 	

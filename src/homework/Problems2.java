@@ -8,7 +8,7 @@ public class Problems2
 		// TODO Auto-generated method stub
 		//separated my solutions to make it easier on myself
 		
-		//hard-coded this for ease of testing
+		//hard-coded for ease of testing
 		int[] arr = {0, 0, 1, 2, 4, 5, 7, 8, 8, 10, 12, 32, 45, 56, 88, 100};
 		int[] arr1 = {4, 4, 8, 8, 16, 20, 24, 28, 32, 36};
 		int n = arr.length;
@@ -17,6 +17,41 @@ public class Problems2
 		
 		System.out.println("The nod of the whole array is: " + nodArray(arr, 0, arr[0]));
 		System.out.println("The nod of arr1 is: " + nodArray(arr1, 0, arr1[0]));
+		
+		System.out.println(isInArray(arr, n, 5));
+		System.out.println(isInArray(arr, n, 9));
+	}
+	
+	public static boolean isInArray(int[] arr, int n, int k)
+	{
+		//solution to Problem 6 - a method that checks whether a number is an element in an
+		//integer array using binary search
+		if(arr[n - 1] == k)
+		{
+			return true;
+		}
+		if(n == 1)
+		{
+			return false;
+		}
+		if(arr[n/2] > k)
+		{
+			int[] copy = new int[n / 2];
+			for(int i = 0; i < copy.length; i++)
+			{
+				copy[i] = arr[i];
+			}
+			return isInArray(copy, n / 2, k);
+		}
+		else
+		{
+			int[] copy = new int[n / 2];
+			for(int i = 0, j = (n / 2); i < copy.length; i++, j++)
+			{
+				copy[i] = arr[j];
+			}
+			return isInArray(copy, n/2, k);
+		}
 	}
 	
 	public static int nod(int a, int b)
