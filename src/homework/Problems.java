@@ -15,6 +15,10 @@ public class Problems {
 		printLeft(n);
 		printRight(n);
 		
+		System.out.println("\nEnter the power of 10 you want: ");
+		int n1 = input.nextInt();
+		printPower(1, n1, false);
+		
 		
 		
 		
@@ -54,6 +58,8 @@ public class Problems {
 	
 	public static void printLeft(int n)
 	{
+		//solution to problem 3
+		//not working properly
 		if(n / 10 <= 0)
 		{
 			System.out.println(n);
@@ -79,6 +85,34 @@ public class Problems {
 			System.out.print(n % 10);
 			printRight(n / 10);
 		}
+	}
+	
+	public static void printPower(int k, int n, boolean hasPassedN)
+	{
+		//solution to problem 5
+		//boolean used to remember if we've reached the Power of N
+		//if no - we make k bigger until we reach it
+		//if yes - we make k smaller until we reach 0, then the program stops
+		if(k == 0)
+		{
+			return;
+		}
+		if(k < n && hasPassedN == false)
+		{
+			System.out.println(Math.pow(10, k));
+			printPower(k + 1, n, false);
+		}
+		if(k == n)
+		{
+			System.out.println(Math.pow(10, k));
+			printPower(k - 1, n, true);
+		}
+		if(k < n && hasPassedN == true)
+		{
+			System.out.println(Math.pow(10, k));
+			printPower(k - 1, n, true);
+		}
+		
 	}
 
 }
