@@ -55,17 +55,14 @@ public class Problems {
 	public static void printLeft(int n)
 	{
 		//solution to problem 3
-		//not working properly
-		if(n / 10 <= 0)
+		//which you showed
+		
+		if(n == 0)
 		{
-			System.out.println(n);
 			return;
 		}
-		else
-		{
-			System.out.println(n / 10);
-			printLeft(n / 10);
-		}
+		printLeft(n / 10);
+		System.out.println(n % 10);
 	}
 	
 	public static void printRight(int n)
@@ -81,6 +78,9 @@ public class Problems {
 			System.out.print(n % 10);
 			printRight(n / 10);
 		}
+		
+		
+
 	}
 	
 	public static void printPower(int k, int n, boolean hasPassedN)
